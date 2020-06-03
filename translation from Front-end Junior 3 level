@@ -1,0 +1,1031 @@
+Front-end Junior 3 level
+Build systems
+Working with data
+CSS
+JavaScript
+Security
+DOM
+Git
+API
+Testing
+List of references
+
+
+Specific to our stack
+TypeScript
+React
+
+
+Build systems
+What is webpack?
+What are loaders and plugins for? What is the difference between them?
+How do bundles differ from task runners?
+How do CSS and HTML preprocessors work?
+
+
+
+
+Working with data
+What is Symbol? What are its use cases?
+What are the differences between arrays and array-like objects? Give examples of array-like objects.
+Destructurization
+         - Renaming properties (for example, how to set the value of object's property foo { foo: 'foo', ... } to the variable bar), default parameters, nested defaults.
+What values will the variables a and b take in each case?
+  function f({ a, b = 0 } = { a: '' }) {
+      // ...
+  }
+  f({ a: 'yes' })
+  f()
+  f({})
+What are memory leaks? When can they happen? How to find and remove them?
+What are the ways to store data on the client? Which way is better to use in each case? What are the features of each way?
+
+Resources
+4 types of memory leaks in JavaScript and how to cope with them
+How to find and fix memory leaks using the example of Yandex.Mail
+Overview of client-side data storage tools
+HTTP cookies explained
+Client-side storage
+Local Storage vs Cookies
+
+
+
+
+
+
+CSS
+Grids
+What are grids? When can they be useful?
+What is grid container and grid item?
+How to set the number and size of rows (columns)?
+    -What units can be used to set the sizes of rows (columns)?
+    -How to set several rows (columns) of the same size?
+    -How to set the minimum and maximum size of row (column)?
+    -How to set spaces between rows and columns?
+Elements placement inside the grid
+   -What is grid line (hereinafter: line)?
+   -What is grid area (hereinafter: area)?
+   -How to set names for areas implicitly when naming lines (and instead, line names when naming areas)?
+   -How to place grid items inside the grid using line names?
+   -How to place grid items inside the grid using area names? In this case, how  to leave empty cells that are not occupied by any elements?
+- How to make adaptive grid (auto-fill and auto-fit properties)?
+- What is explicit and implicit grid?
+                -How to set sizes for "implicitly created" rows and columns?
+    -What does the grid-auto-flow property do?
+- How to work with nested grids?
+- What are the grid properties for alignment?
+- How does the elements overlay work in grids?
+
+
+Graphics
+What is progressive jpeg?
+When to use the img tag, and when background-image?
+The difference in the screens
+                 -What is DPI and PPI?
+                 -What does the phrase "screen with high pixel density" mean?
+                 -What is device-pixel-ratio?
+                -How to scale graphics on screens with high pixel density (for example, on retina displays)?
+
+
+General issues
+How does calc() work? What parameters does it take? What operations are allowed? What units can be used for setting parameter values?
+How to make a triangle in pure CSS?
+How does @import work? Why shouldn’t use @import to upload styles to a document?
+<!-- Why shouldn’t do this way? -->
+<style>
+@import url('a.css');
+</style>
+
+Resources
+CSS Grid Layout Module Level 1 (W3C)
+Guide to learn CSS Grid
+The basic terms of Grid Layout (MDN)
+Grid layout in CSS. Complete guide and reference (Medium)
+The CSS Fractional Unit (Fr) In Approachable, plain Language (Medium)
+What is progressive JPEG?
+Optimizing graphics for Retina screens
+CSS triangles
+Don't use @import
+
+JavaScript
+Regular expressions
+What are regular expressions for?
+What methods do regular expression instances have in JS?
+What methods do strings have that allow to work with regular expressions?
+What are flags in regular expressions? To tell about global, case-insensitive, and multiline flags. 
+How do the methods for specifying quantities (quantifiers) *, +, {3} work?
+What do the next symbols in regular expressions mean: [] и [^], ., ?, ^, $, |?
+What are greedy and lazy quantifiers?
+How to use the base placeholders \W, \w,\D, \d, \S, \s, \B, \b?
+How does \b work for the beginning and for the end of a line? Why does the regular expression \babc\b work for the string abc, but the regular expression \b\.\.\b does not work for the string ..?
+When to use the escape character \?
+What are groups for? How to work with them?
+How to create nested groups?
+What do $1, $2, and so on mean in text editors in the replace field if the search supports regular expressions?
+How to make незапоминающуюся a non-capturing group (a group whose entry will not be returned when matching a string to a regular expression)?
+How to use the group value in the regular expression itself?
+Tasks to do:
+               -Write regular expression to transfer Function Expression in Function Declaration.
+               -Write regular expression to transfer Function Declaration to Function Expression.
+              -Write regular expression to search for all Telegram commands in a message (examples: /help, /start, /active_orders, /order123). To note that there can be several commands in a substring.
+
+
+Promises
+What is Promise? What is it for?
+How to create Promise?
+                   -What is the difference between creating promises using constructor and factory?
+     - Then and catch methods
+                -What do they do?
+                -What is promise chaining?
+                -What can their callbacks return and how will this influence on the state of promise returned to then or catch data?
+       - What is the difference between then(resolveHandler).catch(rejectHandler) and then (resolveHandler, rejectHandler)?
+     - Is it possible to cancel promise?
+     - To tell about methods:
+            -Promise.resolve
+            -Promise.reject
+            -Promise.all
+            -Promise.race
+      - What are the advantages and disadvantages of callbacks and promises?
+
+What value and state will the next promise have and why:
+
+  const promise = new Promise((resolve, reject) => {
+    resolve(0);
+    reject(1);
+    resolve(2);
+  });
+
+
+Resources
+JavaScript — from callbacks to async/await
+Promise (learn.javascript.ru)
+We have a problem with promises
+You're Missing the Point of Promises
+You Don't Know JS: Async & Performance (рус.) - the first three chapters are the most necessary
+
+Security
+What is a SOP (Same-origin policy)? What is it for? How to bypass the SOP restrictions?
+What is CORS (Cross-origin resource sharing)? What is it for?
+            -Preflight request
+                 -What is it?
+                 -What is it for?
+                 -What requests demand it?
+                -What does it contain?
+                -How does the server respond to it?
+          -What are the Access-control-* headers? What are they for?
+- What is JSONP? What is it for?
+
+Resources
+SOP
+CORS
+Preflight request
+HTTP OPTIONS method
+Authoritative guide to CORS (Cross-Origin Resource Sharing) for REST APIs
+XMLHttpRequest: cross-origin requests
+
+DOM
+Working with coordinate system
+                      - Where does coordinate system in the DOM start?
+                      -To tell about coordinates relative to the window / document / screen. When can they be used?
+                      -How to get the sizes of window visible part?
+                      -How to get the coordinates of a specific element?
+                      -How to scroll a document programmatically to the required element?
+- What is event bubbling and event capturing?
+- What is DOM event delegation? How to use it?
+- How does the process of searching for elements using methods getElementsBy*, querySelector, and so on work? Which methods are faster and why? What features do they have?
+- What are the innerHTML/outerHTML properties used for? What are the features of using them?
+- What are the differences between innerHTML and innerText?
+- Can the DOM API programming languages different from JS be used?
+
+Resources
+Good training course on learn js
+W3C spec, first level DOM
+WHATWG spec, dom living standard
+Git
+To tell about the object model (blob, tree, commit, tag) and .pack files.
+What is "the Three Trees" (The HEAD, the Index, The Working Directory)?
+How to undo changes? When each of them should be used?? To tell about the commands in this context:
+               -checkout
+               -reset
+               -revert
+                       -How to revert a merge commit?
+                       -How to get parents of a merge commit?
+              -clean
+              -rm
+- How to change commit history? Where to use each method? To tell about the commands in this context:
+          -commit with the --amend flag
+          -cherry-pick
+          -filter-branch
+          -rebase
+               -What is interactive rebase mode? What does it allow to do?
+               -What is the unsafety of using rebase?
+         -What do these commands do, how to use them, and when are they useful:
+              -stash
+              -reflog
+              -bisect
+- How to cancel merge commit?
+- What are HEAD and detached HEAD? What do HEAD^, HEAD~, HEAD@{1} mean?
+- What is Git flow, and what are its examples?
+
+Resources
+Good Git tutorials from Atlassian 
+Git from the Bottom Up
+Demystifying Git internals
+HEAD~ vs HEAD^ vs HEAD@{}
+Useful tricks you might not know about Git stash
+Introduction to GitLab Flow
+A successful Git branching mode
+
+API
+To explain the differences and main features of the following API types:
+REST API
+JSON API
+JSON RPC
+GraphQL
+Resources
+Nate Barbettini – API Throwdown: RPC vs REST vs GraphQL, Iterate 2018
+JSON API Specification
+JSON RPC Specification
+GraphQL Specification
+Introduction to GraphQL
+
+Testing
+What are boundary conditions? Why to test them?
+What is a heisenbug? What are the ways of debugging it?
+What is a fixture?
+What is code coverage? What tools are there to analyze it?
+How do unit tests differ from integration tests? Why are integration tests more difficult to write and maintain?
+Why to pay attention to patterns when tests fail? How can an analysis that shows which combination of tests fell off help?
+How do tests help in design? Why is the module's testability an excellent indicator of "the code purity"?
+How do tests help with refactoring?
+What are the advantages of the rule one concept per one unit test?
+What are the advantages of separate tests?
+How to find a balance between the number of tests and code coverage? What problems can be from an excessive number of unit tests?
+
+List of references
+To study the book "Code complete" by S. McConnell.
+To study the book "The Minto Pyramid Principle" (or only the summary from smartreading.ru).
+
+TypeScript
+What is function overloading? What are the ways to implement it?
+How to declare a type of class constructor?
+               -Is it possible to declare a type of constructor overload for the class?
+      - What is const assertion?
+            -What is it for?
+            -What are the restrictions?
+
+This code is given:
+
+let names = ['Mary', 'David'];
+let group = {
+  participants: names,
+  ageRestriction: 18,
+} as const;
+group.participants.push('Henry');
+group.ageRestriction = 12;
+Which of the last two lines will cause an error, and which won't? Why?
+         -How to create a new type based on an existing one and add new properties?
+                 -Practical task: Based on the existing types Avenger, Head, Dead, and IPersonalInformation interface, create a new object type of SurvivedAvengers<T> that must meet the following conditions:
+
+                            - T must be compatible with the Avenger type;
+                            - SurvivedAvengers<T> must contain T type keys except for the Dead type keys;
+                          -SurvivedAvengers<T> must contain Head type keys;
+                          -SurvivedAvengers<T> must not contain any other keys;
+                          -the value of IPersonalInformation interface must match to each key in Survived Avengers<T>;
+
+
+ type Avenger = "Thor" | "Hawkeye" | "Captain America" | "Iron Man" | "Dr. Strange" | "Nick Fury";
+type Head = "Nick Fury";
+type Dead = "Iron Man";
+interface PersonalInformation {
+  age: number;
+  name: string;
+  superpower: any;
+};
+
+Example:
+const personalInformation: PersonalInformation = { age: 25; name: 'NameOfAvenger', superpower: 'SuperpowerOfAvenger' };
+const survivedAvengers: SurvivedAvengers<'Thor' | 'Hawkeye' | 'Iron Man'> = { 'Thor': personalInformation, 'Hawkeye': personalInformation, 'Nick Fury': personalInformation };
+                         -Now make the Head type keys optional in survivedAvengers object.
+                                     -Now make the Head type keys optional in survivedAvengers object, except for the keys passed to generic, i.e. the general keys from Head and T must be obligatory, and all other keys from Head must be optional.
+       -What is the purpose of the following types?
+Partial<T>
+Readonly<T>
+Required<T>
+Record<T, U>
+Pick<T, U>
+Omit<T,K>
+Exclude<T, U>
+Extract<T, U>
+NonNullable<T>
+ReturnType<T>
+Parameters<T>
+InstanceType<T>
+ThisType<T>
+
+   -What are Conditional Types for?
+             -How is distributivity displayed in Conditional Types?
+             -How to remove a составной composite type from union type using Conditional Types?
+             -Is it allowed to use Conditional Types together with Mapped Types?
+             -What is infer for? Is it allowed to use infer for types that are not Conditional Types?
+   -Is it possible to declare recursive type Aliases in TypeScript?
+
+Resources
+TypeScript Handbook
+How 2 TypeScript: Serious business with TypeScript's infer keyword
+Conditional Types in TypeScript
+React
+Reconciliation
+                 -What is it? What is its function?
+                 -How does the reconciliation algorithm use the element type (what happens if the type has changed, hasn't changed, etc.)?
+                 -Key attribute
+                           -What is it for?
+                           -Why is it better not to use the index of an array element as a value? When can this rule be ignored?
+                          -Should the value of the key attribute be unique for the entire drawn tree (similar to the html-attribute id )?
+
+There is a list of several elements:
+
+  <ul>
+    {list.map((text, i) => (<li key={i}>{text} <input /> </li>))}
+</ul>
+Let's assume that each input contains some text. If to add another element to the beginning of the list, which input will be empty and why?
+
+Pure Components
+              -What is it? What are they for?
+              -How do they differ from regular components?
+              -What is the equivalent for functional components?
+              -When should they be used and when not?
+              -What restrictions are put on props when using Pure Component?
+
+Why using Pure Component in this way does not bring any benefit (point to specific problem areas):
+
+ function getActiveUsers(users) {
+  return users.filter(x => x.active);
+}
+
+function mapState(state) {
+  return {
+    totalUsers: state.usersList.length,
+    options: state.options;
+    activeUsersList: getActiveUsers(state.usersList),
+  };
+}
+
+class OuterComponent extends React.Component {
+  public render() {
+    const { dataForClick, activeUsersList, totalUsers } = this.props;
+    return (
+      <PureComponent
+        onClick={this.makeClickHandler(dataForClick)}
+        activeUsers={activeUsersList}
+        totalUsers={totalUsers}
+        options={this.enhanceOptions()}
+      >
+        <div>This is <b>Pure Component!</b></div>
+      </PureComponent>
+    );
+  }
+
+  private makeClickHandler(dataForClick) {
+    return () => this.props.onComponentClick(dataForClick);
+  }
+
+  private enhanceOptions() {
+    const { options } = this.props;
+    const uppercased = {};
+    Object.keys(options).forEach(key => {
+      uppercased[key] = options[key].toUpperCase();
+    })
+    return uppercased;
+  }
+}
+
+Performance
+                      -What is windowing or virtualizing of lists?
+                      -Is the DOM element always redrawn if shouldComponentUpdate returns true?
+
+Synthetic Events
+               -What are they and what are they for?
+               -There are 2 handlers assigned to an event <input/>: one through the on... attribute, and the other through addEventListener.
+                          -What is the difference between adding handlers in the first and second ways?
+                          -In what order can handlers be executed? What does it depend on?
+                          -Can one of the handlers cancel the execution of the second handler?
+                          -What problems can arise from using a handler that is hung through addEventListener?
+              -What will be displayed clicking the button and why?
+
+ class Component extends React.Component {
+    componentDidMount() {
+      document.addEventListener('click', this.handleDocumentClick);
+    }
+
+    render() {
+      return <button onClick={this.handleButtonClick}>Click me</button>;
+    }
+
+    handleButtonClick(e) {
+      e.stopPropagation();
+      alert('click button');
+    }
+
+    handleDocumentClick() {
+      alert('click document');
+    }
+  }
+ Context
+              -What is a Context object? How to create it? What does it consist of?
+              -What are the ways to get access to Context in a component?
+              -How to update Context from a deep nested component (i.e., it is a very inconvenient solution to пробрасывать throw a callback in this case)?
+              -Is it possible to put providers of the same Context to each other? Which provider will the data be taken from in this case?
+                -What happens if the value in Context changes, and there is a Pure Component between Provider and subscriber?
+Higher-Order Components
+                 -Can HOC wrap several components at once?
+                 -Why to make a function that returns a higher-order function that creates HOC? How does this help make HOC композабельным?
+                 -What problems can occur if HOC does not throw incoming props further into the child?
+                 -How to handle displayName when creating HOC?
+                 -What problems can occur if build HOC in the render itself every time?
+                 -What problems can occur if HOC doesn't copy all the static methods of the child?
+                 -How does HOC influence on forwarded ref?
+
+To explain why the following approach can serve as an alternative to HOC. When is it not possible to replace HOC in this way?
+
+ render() {
+  return (<WithUser>
+    {user => (<span>{user.name}</span>)}
+  </WithUser>)
+}
+What is Render Prop? Where and how can this technique be used?
+How do Provider and connect from react-redux work (including mapStateToProps assignment and the subscription mechanism work)?
+
+Resources
+React Documentation
+React as a UI Runtime
+Index as a key is an anti-pattern
+React Fiber Architecture - here it is well written about reconciliation in general, the part about implementation details (fiber) is optional.
+React events in depth w/ Kent C. Dodds, Ben Alpert, & Dan Abramov
+Getting to know React DOM’s event handling system inside out
+[Rus] New React context in details
+
+Front-end Middle 1 level
+Object-oriented programming
+Functional programming
+Data structures and data types
+Basic design principles
+Asynchronous 
+Generators
+Isomorphic rendering
+Testing
+Specific to our stack
+Typescript
+TODO fill areas
+Optimization
+Why to avoid premature optimization
+Time management principles
+
+Object oriented programming
+What is OOP?
+What is a class?
+What is an object?
+What is a class hierarchy?
+What is an abstract class and an abstract method?
+What is a static method? Is the class from static methods only a class by OOP?
+What are the features of each of the main relationship types between classes: composition, aggregation, inheritance, and association?
+How does composition differ from inheritance?
+What is polymorphism? What is it used for?
+What is encapsulation? What problems can be solved with it?
+What is the program state? How does it influence on the program?
+What are side effects?
+-Is it necessary to cope with side effects when designing in the OOP paradigm?
+-Are mutations a side effect?
+- What are the SOLID principles? What does each letter from the acronym mean?
+Resources
+Side effects
+Composition against inheritance
+Inheritance vs. Composition vs. Aggregation
+Uses and Abuses of Inheritance, Part 1
+Uses and Abuses of Inheritance, Part 2
+Principles of classes design (S. O. L. I. D.)
+OTA solid (interactive resource)
+Solid principles with uncle Bob - Robert K. Martin
+The Principles of OOD (contains links to chapters about Solid)
+
+
+Functional programming
+To study the book Functional-Light JavaScript by Kyle Simpson (including chapters 1-9).
+What is arity? How to get the function arity in JS?
+What is a first-class citizen? What is it in JS?
+What are the consequences of the fact that JS functions are also first-class citizen?
+What is a higher-order function?
+Control flow
+            -What is it?
+           -How does it influence on the code complexity?
+           -What are the features of control flow in programs written in the functional paradigm?
+Partial function application and currying
+               -When can partial function application be useful?
+               -When can currying be useful?
+              -What are their differences?
+              -What is their influence on the functions arity?
+       - Function composition
+               -What is it?
+               -What is it used for?
+               -What is a pipe?
+               -How to implement the compose function?
+       -Point-free style
+            -What is it?
+            -What advantages can it give?
+            -What disadvantages can be?
+What are side effects? What are they harmful and useful for?
+What are pure functions? What are "грязные функции" "dirty functions"? What are the advantages of each of them?
+Can a "dirty" function be called from a pure function? If so, what does it mean?
+How to limit the influence of "dirty functions" on the system?
+            You have an application that must have certain side effects (for example, the client application must send HTTP requests, show the time, and render the interface). How do you design such an application in a functional paradigm to limit the spread of side effects as much as possible?
+What is idempotence? What is the difference between program and mathematical idempotence?
+What is referential transparency? Is the referential transparency of a function call expression a sufficient feature of the purity of this function?
+Immutability
+-What is it?
+-Are the objects contained in variables declared using const immutable?
+-What are the advantages of immutable data structure?
+-What is structural sharing and what problems does it solve?
+Recursion
+-What is it?
+-What are the advantages and disadvantages of using it?
+-What is tail call optimization? Is it supported in JS?
+
+
+
+Resources
+Functional-Light JavaScript (Kyle Simpson)
+Russian translation
+- Robert C Martin - Functional Programming; What? Why? When?
+-Functional architecture: a definition
+- Functional architecture - The pits of success - Mark Seemann
+- Functional architecture is Ports and Adapters
+-Functional Programming Design Patterns
+Russian translation
+-What is idempotence?
+-Why Functional Programming? The Benefits of Referential Transparency
+- Caution!! Possible side effects
+-Thirteen ways of looking at a turtle
+
+Data structures and data types
+What is a data type?
+What is an abstract data type?
+What is a data structure?
+List
+            -What is a list?
+            -When is it used?
+            -Is the array a list?
+            -How is memory allocated for elements?
+Linked list
+            -What is a linked list?
+           -How are its elements stored in memory?
+           -What are its advantages compared with list?
+           -How does it differ from an array?
+-  Stack
+        -What is a stack?
+        -What is the LIFO principle?
+        -How to get an element located in the middle of the stack?
+       -What examples of its usage are there?
+       -Tree
+               -What is a tree?
+              -What is a leaf and node of the tree?
+              -What is the depth of the tree?
+              -What are binary trees and what are they used for?
+Queue
+            -What is a queue?
+            -What is the FIFO principle?
+            -How to get the penultimate item in the queue?
+           -What examples of its usage are there?
+Set
+           -What is a set?
+           -Can a set contain the same elements?
+           -How are elements stored in memory?
+           -What operations are there on sets?
+Map
+           -What is a map?
+           -What format does it store data in?
+           -Is the object a map?
+          -Is it possible to iterate a map?
+ES6: WeakMap, WeakSet
+           -What are WeakMap and WeakSet?
+           -What are the differences between Map and Set?
+          -What examples of its usage are there?
+What data type, abstract data type, and data structure is the DOM tree?
+
+Resources
+Data Type
+Abstract data Type
+Data structure
+Abstract Data Types
+
+
+Basic design principles
+What is the abstraction? What are the differences between abstraction, encapsulation, and information hiding ?
+What is Coupling? How does abstraction influence on coupling?
+What is Cohesion? Is this value the reverse of the Coupling value?
+Separation of concerns
+            -What is it?
+           -What are the advantages of following this principle?
+           -What do horizontal and vertical separation of concerns mean?
+           -Is vertical separation without horizontal possible and backwards?
+          -How is it linked to the Single Responsibility Principle and with cohesion?
+ - Simplicity
+          -How does Rich Hickey describe the difference between Simple and Easy in his report  "Simple Made Easy"? Why is it necessary to strive for simplicity first of all, and not for ease?
+         -What is the KISS principle?
+         -How does KISS help in the forming of mental models? What is the value of these models?
+         -How can participating in the developing business requirements help to follow KISS?
+         -When abstraction is contrary to KISS?
+         -Why can inheritance lead to KISS violation?
+        -What is the YAGNI principle? How does it relate to the KISS principle?
+DRY
+-What is the main idea of the DRY principle?
+-How does the principle link to Cohesion?
+- How does the principle link to the SRP principle?
+- Why is this principle inseparably linked to SPOT (Single point of truth)?
+                   -What examples of code duplication that don't violate DRY are there?
+                   -What examples of copying business logic code that also don't violate DRY are there?
+                   -How can following the DRY principle lead to violation of KISS?
+                   -How can following the DRY principle lead to Premature Generalization?
+                   -Why is it easy to make a mistake and choose the wrong refactoring method when trying to remove duplication if there are not many repetitions of this code (up to 4-5)? What analogy with statistics is here?
+                  -How to explain the phrase "Duplication is far cheaper than the wrong abstraction."?
+-What are Cross-cutting concerns? What do coarse-grained and fine-grained mean?
+Resources
+Abstraction, Encapsulation, and Information Hiding
+Difference between Abstraction and Encapsulation
+The DRY Principle Explained: Its Benefit and Cost with Examples [Russian translation]
+Why DRY? by Mark Seemann
+The Wrong Abstraction
+A Detailed Explanation of The KISS Principle in Software
+Simple Made Easy — talk of Rich Hickey
+The Art of Separation of Concerns
+Cross cutting concern example on SO
+Cross cutting concern on Wiki
+Coarse-grained vs fine-grained on SO
+Asynchronous in JS
+What is asynchronous? How is it useful?
+What are the alternatives in server development?
+What are the disadvantages of the asynchronous approach?
+What is Event Loop?
+What is Job queue?
+Why can’t try..catch be used for asynchronous actions?
+
+ try {
+  setTimeout(function() { throw new Error('Async error!'); }, 1000);
+} catch (e) {
+  console.log(e);
+}
+
+
+What does this construction output:
+ for (var i = 0; i <= 3; i++){
+  setTimeout(function(){ console.log(i); }, 0);
+}
+
+-What does the number 100 mean in this case: setTimeout(func, 100)?
+-What is async/await?
+-Can an analogy be given between generators and async/await?
+-How to handle errors in code that uses await internally?
+-What if the function that was called with await is not asynchronous in itself? How to emulate it?
+-How to start executing multiple asynchronous functions (created with async) and wait for their joint execution?
+-What are the ways to perform the function asynchronously?
+-JavaScript Features
+      -Why is a language considered event-based and non-blocking?
+      -How are events catched?
+      -Is it possible to create threads in JS?
+
+Resources
+Talk(eng), Robert Philips, What the heck is event loop anyway?
+Talk(rus), Robert Philips, What the heck is event loop anyway?
+How in general handle 10000 requests (Stackoverflow).
+You don't know JS: async and performance(rus).
+Understanding the Node.JS event loop
+How JS works: event loop, asynchrony.
+Multithreaded vs asynchronous programming (Stackoverflow).
+The asynchronous programming methods
+Why is it [not] necessary to use async/await
+Async/await: 6 reasons to forget about promises
+
+Generators
+What are iterators? What is the difference between iterators and regular loops?
+What are iterators for if there are arrays already?
+Which tasks for working with collections are iterators better suited than arrays?
+What are generators? Where can they be useful?
+What do you think why yield exactly is used as a keyword?
+What are coroutines? How do they relate to iterators and/or generators?
+
+Resources
+Iterators
+Generators
+You Don't Know JS: Async & Performance. Chapter 4: Generators
+Isomorphic rendering
+What is server/client/isomorphic rendering? What are their differences?
+How to make an isomorphic app out of a regular app? (to tell more about isomorphism, to see implementation examples)
+To describe the general architecture of the server/client /isomorphic render:
+            -What are the structure components for each architecture?
+            -What does a client server usually do with isomorphic architecture?
+            -What, when and where does routing start?
+            -What responsibility areas do front-server, API-server, and the client itself have? What computing loads are placed on each of these parts?
+How does the url search for react router work?
+How does react understand on the client that the server has already rendered the layout and just need to connect to it?
+What are the advantages of isomorphic rendering?
+What are the disadvantages of isomorphic rendering?
+When would you advise a customer to use a client render, and when isomorphic one?
+Resources
+Talk, Universal JavaScript, Sergey Cherepanov
+Talk, Server Rendering with React and React Router v4
+Why Isomorphic JavaScript?
+Testing
+What is a testing pyramid? What role do tests play there? What role does static code analysis play there?
+Are types a complete replacement for unit tests? Why?
+What are end-to-end tests? What is the difference from integration tests?
+When do tests really slow down development, and when do they speed it up?
+Are tests a full part of the system and code base?
+Why does testing become less convenient if to test both public and private methods?
+What are Test Double and Fake? What is the difference from Mock and Stub?
+What is the difference between testing with behavior verification and with state verification?
+Why does using Mocks provoke behavior verification?
+What are Solitary and Sociable tests? What are the advantages of Solitary tests? Do Sociable tests have any advantages?
+Why does using Mocks make it easier to design with the "outside-in" method?
+Why try to make tests run maximally convenient and with just one command?
+Why should tests be run as one of the CI steps? Can end-to-end tests be left only as part of CI and not be run locally?
+Is it necessary to write "training" integration tests that are run only manually and only for testing an external API (for example, Web API Github)?
+
+Resources
+Test first by R. Marting
+5 Questions Every Unit Test Must Answer by E. Elliott
+Unit Tests, How to Write Testable Code and Why it Matters
+UnitTest by M. Fowler
+Unit Tests from XP
+Test Reviews Vs. Code Reviews - Some Helpful Tips
+Types and Tests
+Mocks Aren't Stubs
+We don't write tests. There just isn't time for luxuries.
+Unit testing for beginners
+Typescript
+What is Type soundness and Type safety? Is there a difference between these concepts?
+What is structural typing? What are the alternatives? What are the advantages and disadvantages of this approach?
+In which cases does TS depart from the principles of structural typing and pass to nominative typing to determine compatibility of types?
+What is the declarations merging? How does it work in TS? What are the advantages and disadvantages? How are types combined for methods?
+Compatibility
+Why does TS consider a compatible function type with fewer arguments
+((a: number) => 0; assignable to (b: number, s: string) => 0;)
+
+
+And how does this apply to the returned result for functions?
+Does TS Type soundness break because of this?
+What is Type Variance? What do Invariance, Covariance, Contravariance, and Bivariance mean?
+When does Covariance appear in TS? When Bivariance? When Contravariance?
+Will parameters show Covariance or Contravariance if to pass to the function a callback that accepts another callback? (output your own example)
+If TS objects and classes were Invariant, how would this influence on type safety and development usability?
+What is Type Widening? How does this mechanism influence on type safety in TS?
+fresh object literal type
+What is it?
+Why is excess property checking turned on in a special way for it?
+Why does passing an object literal not directly to a function, but through an middle variable assignment, increase the probability of an error in the program?
+What is Refinement? How does it work in the context of Discriminated Unions?
+Why does using generic variables in tags for Discriminated Unions make the program more inclined to bugs? When does this really lead to bugs, and when does it not?
+What is Companion Object Pattern? How is Declaration Merging used for its implementation?
+What is type inference? What are the typical problems of type inference? What types can TS output?
+What types of polymorphism does TS support and how to work with it?
+Resources
+What is Type Soundness?
+Is there a difference between type safety and type soundness?
+How can a statically typed language support duck typing?
+Programming TypeScript by Boris Cherny. Chapter 6.
+What are covariance and contravariance?
+TS FAQ. Why are function parameters bivariant?
+TS Handbook. Function Parameter Bivariance
+What the heck is polymorphism? (only chapters up to Row polymorphism and including it)
+Discussion: Typed, modular macros for OCaml, thread about row polymorphism
+Front-end Middle Developer 2 level
+Knowledge areas
+Design patterns
+Basic design principles
+Object-oriented programming
+Functional programming
+Service workers
+Network
+
+TODO fill areas
+Basic knowledge of how networks works
+Basic DDD knowledge
+Basic type systems theory
+Team collaboration principles
+
+
+Design patterns
+What is the difference between structural, порождающими generative and behavioral patterns types?
+To answer questions for each pattern:
+            -What is the meaning of the pattern?
+            -What problems can be solved using this pattern?
+            -What are its disadvantages?
+           -What examples of using this pattern are there?
+          -What type of pattern is this and why?
+- Singleton
+- Strategy
+- Template method
+- Factory, Factory Method, Abstract Factory
+- Observer/mediator
+- Facade
+- Decorator
+- Dependency injection
+- Command
+- Component
+- What examples of these patterns implementation can be given in a functional language, or in a language where functions are objects of the first class, have closures, and do not have integrated implementation tools for expressing the classical OO approach?
+Resources
+Clojure Design Patterns
+Refactoring guru: design patterns
+
+Object-oriented programming
+
+TODO extend OOP section with detailed questions about the topic
+What is identity? What is the difference from экземпляра an instance?
+How is identity implemented through the links to values in memory?
+What is dynamic and static polymorphism in OOP?
+How do polymorphism and interfaces allow to implement dependency inversion?
+What are the ways to extend the class functionality?
+What are the problems with using inheritance?
+What is "delegation"?
+Why does a class and not properties define behavior? What does encapsulation have to do with it?
+Why doesn’t using plain old javascript objects match the principle "everything is an object"?
+
+Functional programming
+To study the book Professor Frisby's Mostly Adequate Guide to Functional Programming by Franklin Frisby (chapters 8-12 inclusive).
+           -Russian translation
+     - To study the book Functional-Light JavaScript by Kyle Simpson (chapters 9-11, plus  extensions).
+- How to implement the functionality of the objects through the circuit, and Vice versa? What are the advantages of each method?
+- How to create private values in a function? How to make them profitable?
+- What are the categories? What are the morphisms?
+- What is an isomorphism?
+- What is a functor?
+- How to avoid unnecessary passes through the array?
+- What is lazy computing? What are the advantages and disadvantages of lazy computing?
+- What is transduction? What problems can be solved using this tool?
+- What is a pointed functor?
+- What are monads? What are they used for? What do the following monads do?
+- Maybe
+- Either
+- IO
+- What is associativity?
+- What is an applicative functor? What is its scope?
+- What do the utilities below do?
+- identity
+- partial/partialRight
+- prop
+- curry/uncurry
+- cond
+- flatMap/chain
+- Immutability and state
+- Can the program state be profitable?
+- What is the problem with storing the program state?
+- Why does the mutable state make it difficult to guarantee invariants throughout the program's lifecycle?
+- Why does mutability impose additional requirements on the order in which functions are performed? How can this be avoided?
+- Describe the following state models. How can they be graded according to the degree of danger?
+ - Invisible to the client changeable state
+- Encapsulated changeable state
+- A changeable state invisible to the programmer
+- Two-phase life cycle
+- Shared between multiple processes changeable state
+- The lack of mutable state
+- Non-encapsulated changeable state
+- Managed changeable state
+- Monotonous changeable state
+
+Resources
+Embracing Immutable Architecture
+Changing state: dangers and fighting with them
+Immutable Data Structures and JavaScript
+Mutability Leads to Suffering
+The discussion thread about mutability
+Service worker
+What is Web Worker?
+-What is Service Worker?
+           -How does the service worker register? At what point is it better to do this?
+           -What is the scope? Is it possible to install multiple service workers with different scope?
+           -What if to send the same URLs to scope for two different service workers?
+          -Why is it impossible access the browser-based synchronous API?
+         -What is the lifecycle of a service worker? What events can be subscribed to in it? What happens at each event?
+         -How to cache the received data? How to implement caching of SPA applications?
+         -How to reinstall the service worker to a newer one? When does the new worker service start working? How to skip the update waiting phase?
+        -When does the browser check the worker service for updates? Is it possible to do this in the manual?
+        -Where is it better to save information when restarting the service worker?
+        -How to implement two-way messaging between a service worker and a client?
+        -How to intercept and process requests?
+        -How to view the installed service workers?
+        -What dev tools are available for working with service workers?
+-Push notifications
+   -What are Push Notifications?
+    -What components are involved in initializing and sending notifications? What does each of them do?
+    -What is the Web Push Protocol?
+    -What are the steps implemented during registration of the application on the notification server?
+       -What is PushSubscription object for?
+       -How to implement receiving and processing notifications? How to show the received notification to the user? What happens if we don't show the received notification to the user?
+      -What the worker service in Push Notifications for? Is it possible without it?
+      -How to customize notifications? What interface elements do it have? How to manage the notification behavior?
+       -How to get focus on our app window when clicking on a notification?
+      -Which user cases for displaying the notification subscription window are useful for UX, and which are not?
+     -Is it possible to control the time when notifications are sent and received and track them in some way?
+     -Do notifications differ in different browsers/operating systems?
+Progressive web apps (PWA)
+           -What is PWA? What are they used for?
+          -What is a Web app manifest? How to include a manifest file in your app?
+         -What is the worker service in PWA for? Why is it impossible to implement a full-fledged PWA without it?
+         -What is the Application shell? How does this approach affect PWA performance when combined with caching?
+        -What is Background sync? How is this technology useful? How to implement it?
+       -What is the difference between PWA and native apps? What are the pros and cons?
+      -What are the limitations of PWA when interacting with the OS? And what causes them?
+      -Is it possible to customize the PWA app icon on the desktop and its notifications?
+-What approaches to web application development, other than PWA, have emerged since the arrival of SW?
+-What other workers exist, their distinctive features and purpose?
+Resources
+Service worker spec
+Service worker cookbook
+Service Workers: an Introduction
+Making a service worker
+ServiceWorker, MessageChannel, & postMessage
+Push API spec
+Web Push Book
+Introduction to Progressive Web App Architectures
+Web app manifest, spec
+Background Sync with Service Workers
+Web Background Synchronization, spec
+Can PWA compete with native applications?
+
+
+Network
+What is the a network protocol?
+OSI model
+            -What is the OSI model?
+            -What was it developed for?
+            -What levels is it divided into? What does the responsibility area for each level include?
+            -Which PDUs are used at each model level?
+            -How do the levels interact with each other? Does the level know that there are other levels (can it contact them directly)?
+-Transport protocol
+             -What is unicast?
+             -What is broadcast?
+            -What is TCP? How does it work?
+            -What is multiplexing?
+            -What is UDP? How does it work?
+            -What is the difference between TCP and UDP?
+- HTTP
+            -What is HTTP?
+            -What parts does HTTP message consist of?
+            -What the main protocol methods are there? What does each of them do?
+           -What are HTTP response status codes for? What sublevels are the status codes divided into?
+           -What is a client-server protocol?
+           -What is a user agent?
+         - What is a proxy?
+         -What is the difference between HTTP 1.1, HTTP 2, and HTTPS?
+         -Can the state in HTTP be managed?
+          -What are sessions?
+-Sockets
+       -What is a socket in the networks context?
+       -Why is a socket considered an abstract object?
+       -What is a unix domain socket?
+-Communicating with the server
+        -What are AJAX and COMET?
+         -What is XMLHttpRequest?
+              -What data can it work with?
+             -What protocols is it used with?
+            -Is it possible to send a synchronous request?
+            -Can the request duration be limited?
+           -How to resume an interrupted request?
+What is polling and long polling?
+What is WebSocket?
+-What is this technology used for?
+-What are the differences from unix domain socket?
+-What protocol is used for sending data? How does it work?
+-What is a websocket frame? How does it work and what types are there?
+-When will the socket connection be closed?
+       -How to resume a broken connection? How to restore a file download from the same place where the connection was interrupted?
+       -What is PING/PONG?
+ -What are the alternatives if this technology is not supported by the browser?
+What are Server-Side Events?
+            -What are the differences from WebSockets?
+            -What protocol is used for sending data?
+            -What format does the server send messages in?
+           -How does the connection to the server resume if it was lost? How to resume the connection from the last received message?
+         -What events do Server-Side Events have? Can custom events be created?
+How does the fetch method work in JavaScript?
+             -How to set options and headers for a request object?
+             -What is the difference from XMLHttpRequest?
+            -How to send/receive cookies using fetch?
+            -What status does it set for 400 and 500 errors?
+            -What is the ok property used for in response?
+         -What is the JSONP protocol for?
+            -How to process the response from the server?
+            -How to catch and handle errors?
+            -How to implement COMET functionality using JSONP?
+Resources
+Talk, OSI model level functions
+AJAX и COMET, learn js
+Using fetch, MDN
+HTTP, MDN
+What is  HTTP
+
+Front-end Middle Developer 3 level
+Middle Front-end Developer 3 level has studied thoroughly the main directions of software design. He has experience in successfully designing of small local solutions where there are no generally accepted and ready approaches (frameworks), and their further support. He knows how to communicate with a non-tech team, how to model the subject area. He also knows the principles of effective team work.
+Front-end Middle Developer 4 level
+Middle Front-end Developer 4 level knows perfectly the principles of developing supported and flexible solutions. He already begins to study architectural principles actively, but still can not always use them correctly on their own.
+Front-end Senior Developer
+Senior Frontend Developer is able to design complex nontrivial supported solutions, base a flexible architecture that is capable to development and refactoring, which will not stall the entire development. He knows how to control the system to quickly and effectively catch heisenbugs, how to monitor and track degradation and errors in the system. He can quickly learn new topics himself and find areas for further growth, even if there is no active practical need for additional knowledge.
+
